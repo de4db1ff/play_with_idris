@@ -11,6 +11,7 @@ reverse_list : List a -> List a
 reverse_list [] = []
 reverse_list (x :: xs) = xs ++ [x]
 
+public export 
 data Tree : (a : Type) -> Type where
     -- a tree is either empty:
     Leaf : Tree a
@@ -24,9 +25,7 @@ size (Node l _ r) = S (size l + size r)
 -- Error: Can't solve constraint between: ?prim__add_Int [no locals in scope] and ?a [no locals in scope].
 -- soooo buggy :(
 -- It works in the REPL though
---t1 = Node (Node Leaf 1 (Node Leaf 3 Leaf)) 5 Leaf
---t2 = Node (Node (Node Leaf 1 Leaf) 2 (Node Leaf 3 Leaf)) 4 (Node (Node Leaf 5 Leaf) 6 (Node Leaf 7 Leaf))
---size t1
+-- size (Node (Node (Node Leaf 1 Leaf) 2 (Node Leaf 3 Leaf)) 4 (Node (Node Leaf 5 Leaf) 6 (Node Leaf 7 Leaf)))
 
 n_to_lu : Nat -> List Unit
 n_to_lu 0 = []
