@@ -35,6 +35,7 @@ factorial : Nat -> Nat
 factorial 0 = 1
 factorial (S n) = mul (S n) (factorial n) 
 
+public export
 data Shape : Type where
   Circle : (radius : Double) -> Shape
   Rectangle : (width : Double) -> (height : Double) -> Shape
