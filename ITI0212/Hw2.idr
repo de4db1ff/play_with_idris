@@ -54,12 +54,11 @@ mapIO f x = x >>=
   \ res => pure $ f res
 
 eitherIO : Either (IO a) (IO b) -> IO (Either a b)
-eitherIO x with (x)
-  eitherIO x | (Left comp) = comp >>= 
-    \res => pure $ Left res
-  eitherIO x | (Right comp) = do
-    res <- comp
-    pure $ Right res
+eitherIO (Left comp) = comp >>= 
+  \res => pure $ Left res
+eitherIO (Right comp) = do
+  res <- comp
+  pure $ Right res
 
 bothIO : Pair (IO a) (IO b) -> IO (Pair a b)
 bothIO (x, y) = do
