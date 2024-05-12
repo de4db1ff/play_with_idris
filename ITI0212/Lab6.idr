@@ -13,6 +13,7 @@ uncoL (x :: xs) = x :: uncoL xs
 colist : Colist Nat
 colist = 0 :: colist
 
+public export
 data  Conat : Type  where
 	Zero  :  Conat
 	Succ  :  Inf Conat -> Conat
